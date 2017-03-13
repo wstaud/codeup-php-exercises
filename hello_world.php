@@ -11,4 +11,3 @@ if($firstName === "William"){
     echo "Who in the world are you?" . PHP_EOL;
 }
 
-?>
