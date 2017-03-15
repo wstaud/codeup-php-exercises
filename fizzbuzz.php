@@ -1,5 +1,6 @@
 <?php
 
+//Simple FizzBuzz app. Prints fizz if number is divisable by 3. Buzz if divisable by 5. Both if both divisable.
 for ($i = 1; $i <= 100; $i++) {
     if (($i % 3 == 0) and ($i % 5 == 0)) {
         echo("FizzBuzz" . PHP_EOL);
