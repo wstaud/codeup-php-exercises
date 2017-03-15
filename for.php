@@ -6,7 +6,7 @@ $startingNum = trim(fgets(STDIN));
 fwrite(STDOUT, 'Ending number? ');
 $endingNum = trim(fgets(STDIN));
 //Ask user for increment by and assign
-fwrite(STDOUT, 'Increment by? ');
+fwrite(STDOUT, 'Increment by? (Press enter for default of 1) ');
 $increment = trim(fgets(STDIN));
 
 //Check if numbers are numeric. If not, print error and kill. If so, check increment is numeric or blank. If not, print error and kill 
