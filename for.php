@@ -1,15 +1,16 @@
 <?php
-
+//Ask user for starting number and assign
 fwrite(STDOUT, 'Starting number? ');
 $startingNum = trim(fgets(STDIN));
-
+//Ask user for ending number and assign
 fwrite(STDOUT, 'Ending number? ');
 $endingNum = trim(fgets(STDIN));
-
+//Ask user for increment by and assign
 fwrite(STDOUT, 'Increment by? ');
 $increment = trim(fgets(STDIN));
 
-
+//Check if numbers are numeric. If not, print error and kill. If so, check increment is numeric or blank. If not, print error and kill 
+//If increment is blank, default is 1
 if (is_numeric($startingNum) and is_numeric($endingNum)) {
     if ($increment === "") {
         $increment = 1;     
