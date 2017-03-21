@@ -1,17 +1,19 @@
 <?php
 
 function parseContacts($filename)
-{
+{       
+    //Empty arrays to be added to
     $contacts = array();
     $result = array();
-
-    // todo - read file and parse contacts
+    
+    //Grab contacts.txt, open, asign size, trim it's contents and turn it into an array
     $filename = "contacts.txt";
     $handle = fopen($filename, "r");
     $contents = fread($handle, filesize($filename));
     $contents = trim($contents);
     $contacts = explode("\n", $contents);
     
+    //Takes the contacts array, seperates it further, turns the number into phone number format, and turns the array into a multi-dim array 
     foreach($contacts as $contact) {
         $tempArray = explode("|", $contact);
         $num1 = substr($tempArray[1], 0, 3); 
@@ -23,10 +25,10 @@ function parseContacts($filename)
                           "number" => $tempArray[1]);
     }
 
-
+    //close the handle and return the result
     fclose($handle);
     return $result;
 }
-
+//run contacts.txt through the parseContacts function and dump the return
 var_dump(parseContacts('contacts.txt'));
 
