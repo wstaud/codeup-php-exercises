@@ -3,16 +3,13 @@
 
 function logMessage($logLevel, $message)
 {  
-    $filename = 'txt/log.txt';
+    $filename = "txt/log-" . date("Y-m-d") . ".log"; 
     $handle = fopen($filename, 'a');
-
-    if(file_exists($filename)) {
-        echo("it exists");
-        $filename = "txt/log2" . date("Ymd") . ".txt"; 
-    }
-
+    
+    $logLevel = date("Y-m-d") . " " . date("H:i:s") . " " . $logLevel;
     fwrite($handle, PHP_EOL . $logLevel . ": " . $message);
     fclose($handle);
+
 }
 
 
@@ -21,4 +18,3 @@ logMessage("ERROR", "This is an info message.");
 
 ?>
 
-//php.init
