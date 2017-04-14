@@ -1,0 +1,7 @@
+.DS_Store
+config.codekit3
+.tern-project
+css/main.css.map
+css/.sass-cache/
+*.log
+.idea/
