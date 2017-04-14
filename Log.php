@@ -3,7 +3,11 @@
 class Log {
     public $filename;
     public $handle;
-    public $prefix = "log";
+
+   public function __construct($prefix = "log") {
+        $this->filename = "$prefix-" . date("Y-m-d") . ".log";
+        $this->handle = fopen($this->filename, 'a');
+    } 
 
     public function logMessage($logLevel, $message) {
         $logLevel = date("Y-m-d") . " " . date("H:i:s") . " " . $logLevel;
@@ -17,16 +21,9 @@ class Log {
         $this->logMessage("ERROR", $message); 
     }
 
-    public function __construct($prefix) {
-        $this->prefix = $prefix; 
-        $this->filename = "$prefix-" . date("Y-m-d") . ".log";
-        $this->handle = fopen($this->filename, 'a');
-    }
-
     public function __destruct(){
         fclose($this->handle);
     }
-
 }
 
 ?>
